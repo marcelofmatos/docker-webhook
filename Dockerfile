@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3-alpine
 
 # Install docker
 RUN cd /usr/bin; \
@@ -14,6 +14,10 @@ WORKDIR /app
 COPY requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt && \
     rm -f requirements.txt
+
+# git
+
+RUN apk add git
 
 # Copy in webhook listener script
 COPY webhook_listener.py ./webhook_listener.py
