@@ -16,8 +16,7 @@ RUN pip install -r requirements.txt && \
     rm -f requirements.txt
 
 # git
-
-RUN apk add git
+RUN apk add --no-cache git openssh-client
 
 # Copy in webhook listener script
 COPY webhook_listener.py ./webhook_listener.py
